@@ -8,24 +8,21 @@ body, html {
 	height: 100% !important;
 }
 h2 {
-	margin: 0 0 20px 0;
-	font-weight: 500;
-	font-size: 34px;
-	color: #333;
-	transform: translateY(30px); /* Start 30px below */
-    animation: slideUp 0.6s ease-in-out forwards; 
+    margin: 0 0 20px 0;
+    font-weight: 500;
+    font-size: 34px;
+    color: #333;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(30px); /* Start 30px below */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
 
+/* When the element enters the viewport */
+h2.show {
+    opacity: 1;
+    transform: translateY(0);
 }
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px); /* Start from 30px below */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0); /* End at normal position */
-    }
-}
+
 h2:hover {
     color: #ff6600;  /* Changes to orange */
     font-size: 36px;  /* Slightly increases the size */
@@ -660,6 +657,11 @@ color: #777;
 }
 #contact .contact-item p {
 	font-size: 16px;
+}
+
+#contact .section-title h2{
+	font-family: 'Dancing Script';
+
 }
 /* Footer Section*/
 #footer {

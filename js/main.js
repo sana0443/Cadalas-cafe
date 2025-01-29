@@ -80,4 +80,19 @@ function main() {
 
 
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const h2Elements = document.querySelectorAll("h2");
+
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+          }
+      });
+  }, { threshold: 0.2 }); // Adjust threshold to control when it triggers
+
+  h2Elements.forEach(h2 => observer.observe(h2));
+});
+
 main();
